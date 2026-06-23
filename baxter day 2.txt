@@ -1,0 +1,127 @@
+
+
+implementing IPAM: IP address management server
+
+
+lland transportation
+d1/c1:
+Config t
+vlan 13
+name comelec
+Interface vlan 13
+ desc SVIFORCHEVRON
+ no shut
+ip add 172.16.4.1 255.255.252.0
+ip dhcp excluded-add 172.16.4.1 172.16.4.100
+ip dhcp pool CHEVRONINC
+ network 172.16.4.0 255.255.252.0
+ default-router 172.16.4.1
+domain-name lto.gov.ph
+dns-server 8.8.8.8
+end
+sh ip dhcp binding
+@A1:
+config t
+Int e0/0
+switchport mode access
+switchport access vlan 13
+do sh vlan brief
+@P1
+config t
+int e0/0
+no ip address dhcp
+ip address dhcp
+no shut
+do bp
+
+
+
+
+
+
+COMELEC
+d1/A2/P2:
+Config t
+vlan 69
+name comelec.gov.ph
+Interface vlan 69
+ desc comelec.gov.ph
+ no shut
+ip add 172.16.0.33 255.255.252.224
+IP
+Exit
+ip dhcp excluded-add 172.16.0.33 172.16.0.35
+ip dhcp pool comelec.gov.ph
+ network 172.16.0.32 255.255.252.0
+ default-router 172.16.0.33
+domain-name lto.gov.ph
+dns-server 8.8.8.8
+end
+sh ip dhcp binding
+@A2:
+config t
+Int e1/0
+switchport mode access
+switchport access vlan 69
+do sh vlan brief
+@P2
+config t
+int e1/0
+no ip address dhcp
+ip address dhcp
+no shut
+do bp
+
+
+
+
+DPWH
+!@C1/d1
+Config t
+vlan 67
+name dpwh.gov.ph
+Interface vlan 67
+ desc dpwh.gov.ph
+ no shut
+ip add 172.16.16.1 255.255.240.0
+Exit
+ip dhcp excluded-add 172.16.16.1 172.16.0.100
+ip dhcp pool comelec.gov.ph
+ network 172.16.16.0 255.255.240.0
+ default-router 172.16.16.1
+domain-name comelec.gov.ph
+dns-server 8.8.8.8
+end
+sh ip dhcp binding
+@A2:
+config t
+Int e1/0
+switchport mode access
+switchport access vlan 67
+do sh vlan brief
+@P2
+config t
+int e1/0
+no ip address dhcp
+ip address dhcp
+no shut
+do bp
+
+!@coreTAAS
+conf t
+ int fa0/9
+no sw
+ip add 192.168.147.161 255.255.255.224
+no shut
+end
+
+!@corebaba
+
+conf t
+int fa0/9
+no sw
+ip add 192.168.147.200 255.255.255.224
+no shut
+end
+
+
