@@ -1,0 +1,416 @@
+001a.0709.bce9 - camera 08
+001a.0709.c633  - camera 06
+8478.aced.5bb7    DYNAMIC     Fa0/camera 5
+ccd8.c1fb.02b7    DYNAMIC     Fa0/6
+
+ip route add 0.0.0.0/0 via 10.11.11.113 dev ens224
+
+redtube    66.254.114.238
+youporn:   66.254.114.79
+fake taxi  66.254.114.79
+bangbros   66.254.114.234
+bangbus    172.67.133.243
+pinayflix  104.21.555.88
+iyotube    208.77.20.35
+
+
+
+
+!@UTM-PH
+config t
+ no ip access-list standard FWP1
+ ip access-list standard FWP1
+  deny 66.254.114.0 0.0.0.255
+  deny 172.67.133.0 0.0.0.255 
+  deny 104.21.555.0 0.0.0.255 
+  deny 208.77.20.0 0.0.0.255 
+  permit any
+
+ int gi 1
+  ip access-group FWP1 in
+  end
+show ip access-list int g1
+
+int gi 1
+ no ip access-group FWP1 in
+  end
+show ip access-list int g1
+
+
+
+!@UTM-PH
+config t
+ ip access-list standard FWP2
+ ip access-list standard FWP1
+  deny 72.66.161.0 0.0.0.255
+  deny 50.6.160.0 0.0.0.255 
+  deny 184.168.125.0 0.0.0.255 
+  deny 155.137.92.0 0.0.0.255 
+  permit any
+
+ int gi 1
+  ip access-group FWP2 in
+  end
+show ip access-list int g1
+
+int gi 1
+ no ip access-group FWP1 in
+  end
+show ip access-list int g1
+
+
+
+
+
+
+
+
+
+
+
+
+
+TORRENTS
+162.159.136.6
+104.21.74.130
+13.248.169.48
+172.67.173.197
+104.21.30.199
+5.253.85.55
+
+!@UTM-PH
+config t
+ ip access-list standard FWP2
+
+ 
+  deny 104.21.74.0 0.0.0.255 
+  deny 13.248.169.0 0.0.0.255 
+  deny 172.67.173.0 0.0.0.255 
+  deny 104.21.30.0 0.0.0.255 
+  Deny 5.253.85.0 0.0.0.255
+  permit any
+
+ int gi 1
+  ip access-group FWP2 in
+  end
+show ip access-list int g1
+
+10.3.3.182
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\Administrator> nmap -v 10.82.1.10
+Starting Nmap 7.97 ( https://nmap.org ) at 2026-06-25 13:40 +0800
+Initiating Parallel DNS resolution of 1 host. at 13:40
+Completed Parallel DNS resolution of 1 host. at 13:41, 2.00s elapsed
+Initiating SYN Stealth Scan at 13:41
+Scanning 10.82.1.10 [1000 ports]
+Discovered open port 110/tcp on 10.82.1.10
+Discovered open port 53/tcp on 10.82.1.10
+Discovered open port 80/tcp on 10.82.1.10
+Discovered open port 21/tcp on 10.82.1.10
+Discovered open port 25/tcp on 10.82.1.10
+Discovered open port 143/tcp on 10.82.1.10
+Discovered open port 587/tcp on 10.82.1.10
+Discovered open port 445/tcp on 10.82.1.10
+Discovered open port 139/tcp on 10.82.1.10
+Discovered open port 135/tcp on 10.82.1.10
+Discovered open port 3000/tcp on 10.82.1.10
+Discovered open port 902/tcp on 10.82.1.10
+Discovered open port 912/tcp on 10.82.1.10
+Discovered open port 5985/tcp on 10.82.1.10
+Completed SYN Stealth Scan at 13:41, 0.06s elapsed (1000 total ports)
+Nmap scan report for 10.82.1.10
+Host is up (0.00s latency).
+Not shown: 986 closed tcp ports (reset)
+PORT     STATE SERVICE
+21/tcp   open  ftp
+25/tcp   open  smtp
+53/tcp   open  domain
+80/tcp   open  http
+110/tcp  open  pop3
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+143/tcp  open  imap
+445/tcp  open  microsoft-ds
+587/tcp  open  submission
+902/tcp  open  iss-realsecure
+912/tcp  open  apex-mesh
+3000/tcp open  ppp
+5985/tcp open  wsman
+
+Read data files from: C:\Program Files (x86)\Nmap
+Nmap done: 1 IP address (1 host up) scanned in 2.96 seconds
+           Raw packets sent: 1000 (44.000KB) | Rcvd: 2014 (84.616KB)
+PS C:\Users\Administrator> net use \\10.3.3.182\ipc$
+The command completed successfully.
+
+PS C:\Users\Administrator> net use x: /delete
+x: was deleted successfully.
+
+PS C:\Users\Administrator> ne use x: \\10.3.3.182\c$
+ne : The term 'ne' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ ne use x: \\10.3.3.182\c$
++ ~~
+    + CategoryInfo          : ObjectNotFound: (ne:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Administrator> net use x: \\10.3.3.182\c$
+The command completed successfully.
+
+PS C:\Users\Administrator> net use x: /delete
+x: was deleted successfully.
+
+PS C:\Users\Administrator> net use x: \\10.2.2.182\c$
+PS C:\Users\Administrator> ^C
+PS C:\Users\Administrator> ^C
+PS C:\Users\Administrator> net use x: /delete
+The network connection could not be found.
+
+More help is available by typing NET HELPMSG 2250.
+
+PS C:\Users\Administrator> net use \\10.3.3.141\ipc$
+The command completed successfully.
+
+PS C:\Users\Administrator> net use x: /delete
+The network connection could not be found.
+
+More help is available by typing NET HELPMSG 2250.
+
+PS C:\Users\Administrator> net use \\10.3.3.141\c$
+The command completed successfully.
+
+PS C:\Users\Administrator> net use x: \\10.3.3.141\c$
+The command completed successfully.
+
+PS C:\Users\Administrator> cd x:
+PS X:\> cd users
+PS X:\users> cd administrator
+PS X:\users\administrator> cd desktop
+PS X:\users\administrator\desktop> mkdir pinasukan-ka-ni-bax
+
+
+    Directory: X:\users\administrator\desktop
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         6/25/2026   1:48 PM                pinasukan-ka-ni-bax
+
+
+PS X:\users\administrator\desktop> ntestat -n -p tcp
+ntestat : The term 'ntestat' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was
+included, verify that the path is correct and try again.
+At line:1 char:1
++ ntestat -n -p tcp
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (ntestat:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS X:\users\administrator\desktop> netstat -n -p tcp
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State
+  TCP    10.3.3.172:445         10.3.3.171:60037       ESTABLISHED
+  TCP    10.3.3.172:1442        10.3.3.182:445         ESTABLISHED
+  TCP    10.3.3.172:4073        140.82.112.21:443      LAST_ACK
+  TCP    10.3.3.172:28517       34.160.152.31:443      ESTABLISHED
+  TCP    10.3.3.172:28525       10.3.3.181:445         ESTABLISHED
+  TCP    10.3.3.172:28531       52.123.128.14:443      ESTABLISHED
+  TCP    10.3.3.172:28535       35.71.137.105:443      TIME_WAIT
+  TCP    10.3.3.172:29334       172.172.255.216:443    ESTABLISHED
+  TCP    10.3.3.172:29335       172.172.255.216:443    ESTABLISHED
+  TCP    10.3.3.172:34687       140.82.114.26:443      ESTABLISHED
+  TCP    10.3.3.172:36464       10.3.3.141:445         ESTABLISHED
+  TCP    10.3.3.172:49267       69.173.158.92:443      ESTABLISHED
+  TCP    10.3.3.172:51043       69.173.158.67:443      ESTABLISHED
+  TCP    10.3.3.172:61278       150.171.29.11:443      ESTABLISHED
+  TCP    10.82.1.10:42936       10.82.1.4:23           ESTABLISHED
+  TCP    10.82.1.10:42937       10.82.100.8:23         ESTABLISHED
+  TCP    10.82.1.10:42942       10.82.82.1:23          ESTABLISHED
+  TCP    10.82.1.10:55177       10.82.1.2:23           ESTABLISHED
+  TCP    127.0.0.1:6379         127.0.0.1:49673        ESTABLISHED
+  TCP    127.0.0.1:6379         127.0.0.1:49674        ESTABLISHED
+  TCP    127.0.0.1:46392        127.0.0.1:46393        ESTABLISHED
+  TCP    127.0.0.1:46393        127.0.0.1:46392        ESTABLISHED
+  TCP    127.0.0.1:49673        127.0.0.1:6379         ESTABLISHED
+  TCP    127.0.0.1:49674        127.0.0.1:6379         ESTABLISHED
+  TCP    127.0.0.1:62607        127.0.0.1:62608        ESTABLISHED
+  TCP    127.0.0.1:62608        127.0.0.1:62607        ESTABLISHED
+  TCP    192.168.101.1:42507    192.168.101.132:22     ESTABLISHED
+  TCP    192.168.102.1:44703    192.168.102.11:23      ESTABLISHED
+PS X:\users\administrator\desktop>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+====================================================================================================
+
+
+
+
+
+
+
+
+
+
+conf t
+ no ip access-list extended FWP4
+ ip access-list extended FWP4
+ permit tcp Any host 208.8.8.100 eq 80 log
+ permit tcp Any host 208.8.8.100 eq 443 log
+ permit icmp Any host 208.8.8.100 log
+ permit tcp Any host 208.8.8.100 eq 22 log
+ permit tcp Any host 208.8.8.100 eq 53 log
+ Int gi 1
+  ip access-group FWP4 in
+  end
+
+
+==========================================================================
+
+conf t
+ no ip access-list extended FWP4
+ ip access-list extended FWP4
+ permit tcp Any host 208.8.8.100 eq 23 log
+ permit tcp Any host 208.8.8.100 eq 2000 log
+ permit tcp Any host 208.8.8.100 eq 110 log
+ permit tcp Any host 208.8.8.100 eq 21 log
+ permit tcp Any host 208.8.8.100 eq 123 log
+ Int gi 1
+  no ip access-group FWP4 in
+  end
+
+
+==================================================================
+
+!@BLDG-1
+sudo su
+hostname BLDG-PH
+ifconfig eth0 10.11.11.101 netmask 255.255.255.224 up
+route add default gw 10.11.11.113
+ping 10.11.11.113
+
+!@BLDG-2
+sudo su
+hostname BLDG-PH
+ifconfig eth0 10.11.11.102 netmask 255.255.255.224 up
+route add default gw 10.11.11.113
+ping 10.11.11.113
+
+!@BLDG-3
+sudo su
+hostname BLDG-PH
+ifconfig eth0 10.11.11.103 netmask 255.255.255.224 up
+route add default gw 10.11.11.113
+ping 10.11.11.113
+
+
+
+
+HOW TO CONFIUGURE NAT
+1. Define inside and outside
+
+!@UTM-PH
+conf t
+int g1
+ip nat outside
+int g3
+ip nat inside
+end
+
+2. match traffic
+
+!@UTM-PH
+ip access-list extended NAT
+permit ip  10.11.11.96 0.0.0.31 any
+end
+
+conf t
+access-list 1 permit 10.11.11.96 0.0.0.31
+
+3. configure NAT
+
+!@UTM-PH
+CONF T
+ip nat inside source list NAT int g1 overload
+end 
+show ip nat translations
+
+
+
+============================================================
+conf t
+ ip nat inside source static tcp 10.11.11.101 80 208.8.8.69 8080
+ ip nat inside source static tcp 10.11.11.102 443 208.8.8.69 8443
+ ip nat inside source static tcp 10.11.11.103 80 208.8.8.69 80
+ ip nat inside source static tcp 10.11.11.103 443 208.8.8.69 443
+end
+============================================================
+conf t
+ip nat inside source static tcp 10.11.11.101 80 208.8.8.80 2345
+ip nat inside source static tcp 10.11.11.101 22 208.8.8.80 2222
+ip nat inside source static tcp 10.11.11.102 22 208.8.8.80 2223
+ip nat inside source static tcp 10.11.11.103 22 208.8.8.80 2224
+ip nat inside source static tcp 10.11.11.102 443 208.8.8.69 6969
+end
+===========================================================
+vmware
+
+adduser admin
+pass 
+pass
+
+==================================================================
+!@UTM-PH
+conf t
+ip domain name ccna.com
+crypto key generate rsa modulus 1024
+ip ssh version 2
+line vty 0 14
+transport input all
+login local
+end
